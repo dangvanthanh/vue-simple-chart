@@ -8147,6 +8147,7 @@ Vue$3.nextTick(function () {
 /*  */
 
 var BarChart = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('svg',{attrs:{"width":"420","height":"150"}},_vm._l((_vm.data),function(d,i){return _c('g',{staticClass:"bar",attrs:{"transform":("translate(0, " + (21 * i) + ")")}},[_c('rect',{attrs:{"width":d * 10,"height":"19"}})])}))])},staticRenderFns: [],
+  name: 'bar-chart',
   data: function data () {
     return {
       data: [4, 8, 15, 16, 23]
@@ -8154,19 +8155,44 @@ var BarChart = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c
   }
 }
 
-var LineChart = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('svg',{staticClass:"line-chart",attrs:{"viewBox":"0 0 500 100"}},[_c('polyline',{attrs:{"fill":"none","stroke":"#0074d9","stroke-width":"2","points":"\n        0, 120\n        20, 60\n        40, 80\n        60, 20\n        80, 100\n        100, 40"}})])])},staticRenderFns: [],
+var LineChart = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('svg',{staticClass:"line-chart",attrs:{"viewBox":"0 0 500 100"}},[_c('polyline',{attrs:{"fill":"none","stroke":"#0074d9","stroke-width":"2","points":_vm.points}})])])},staticRenderFns: [],
+  name: 'line-chart',
   data: function data () {
     return {
       data: [120, 60, 80, 20, 100, 40]
     }
+  },
+  computed: {
+    points: function points () {
+      var points = '';
+      var pointsArr = [];
+
+      this.data.forEach(function (d, i) {
+        pointsArr.push(((i * 20) + " " + d));
+      });
+
+      points = pointsArr.join(' ');
+
+      return points
+    }
   }
 }
 
-var App = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app"},[_c('bar-chart'),_vm._v(" "),_c('line-chart')],1)},staticRenderFns: [],
+var PieChart = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('svg',{staticClass:"pie-chart",attrs:{"width":"100","height":"100"}},[_c('circle',{staticStyle:{"stroke-dasharray":"94.8, 158"},attrs:{"r":"25","cx":"50","cy":"50"}})])])},staticRenderFns: [],
+  name: 'pie-chart',
+  data: function data () {
+    return {
+      data: 10
+    }
+  }
+}
+
+var App = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app"},[_c('bar-chart'),_vm._v(" "),_c('line-chart'),_vm._v(" "),_c('pie-chart')],1)},staticRenderFns: [],
   name: 'app',
   components: {
     BarChart: BarChart,
-    LineChart: LineChart
+    LineChart: LineChart,
+    PieChart: PieChart
   }
 }
 

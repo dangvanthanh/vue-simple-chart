@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  name: 'bar-chart',
   data () {
     return {
       data: [4, 8, 15, 16, 23]
