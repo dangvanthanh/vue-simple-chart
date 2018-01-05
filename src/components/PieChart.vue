@@ -24,7 +24,6 @@ export default {
   background: #ddd;
   border-radius: 100%;
   display: block;
-  margin-top: 50px;
 }
 
 .pie-chart circle {
