@@ -1,7 +1,7 @@
 <template>
   <div>
     <svg width="420" height="100">
-      <g class="bar" v-for="(d, i) in data" :transform="`translate(0, ${21 * i})`">
+      <g class="bar" v-for="(d, i) in data" :transform="`translate(0, ${21 * i})`" :key="i">
         <rect :width="d * 10" height="19"/>
       </g>
     </svg>
